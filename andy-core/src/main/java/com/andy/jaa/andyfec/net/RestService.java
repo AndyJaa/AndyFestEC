@@ -3,8 +3,10 @@ package com.andy.jaa.andyfec.net;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -29,9 +31,15 @@ public interface RestService {
     @POST
     Call<String> post(@Url String url, @FieldMap Map<String,Object> params);
 
+    @POST
+    Call<String> post_raw(@Url String url, @Body RequestBody params);
+
     @FormUrlEncoded
     @PUT
     Call<String> put(@Url String url, @FieldMap Map<String,Object> params);
+
+    @PUT
+    Call<String> put_raw(@Url String url, @Body RequestBody params);
 
     @DELETE
     Call<String> delete(@Url String url, @QueryMap Map<String,Object> params);
