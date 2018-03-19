@@ -7,6 +7,7 @@ import com.andy.jaa.andyfec.net.callback.IFailure;
 import com.andy.jaa.andyfec.net.callback.IRequest;
 import com.andy.jaa.andyfec.net.callback.ISuccess;
 import com.andy.jaa.andyfec.net.callback.RequestCallbacks;
+import com.andy.jaa.andyfec.net.download.DownloadHandler;
 import com.andy.jaa.andyfec.ui.LatteLoader;
 import com.andy.jaa.andyfec.ui.LoaderStyle;
 
@@ -35,15 +36,22 @@ public class RestClient {
     private final File FILE;
     private final LoaderStyle LOADERSTYLE;
     private final Context context;
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
 
     public RestClient(String url,WeakHashMap<String,Object> param,
-                      IRequest request,
+                      String downloadDir,String extension,
+                      String name,IRequest request,
                       ISuccess success, IFailure failure,
                       IError error, RequestBody body,
                       File file,Context context,
                       LoaderStyle style) {
         this.URL = url;
         PARAM.putAll(param);
+        this.DOWNLOAD_DIR = downloadDir;
+        this.EXTENSION = extension;
+        this.NAME = name;
         this.IREQUEST = request;
         this.ISUCCESS = success;
         this.IFAILURE = failure;
@@ -131,5 +139,13 @@ public class RestClient {
     }
     public final void delete(){
         request(HttpMethod.DELETE);
+    }
+
+    public final void upload(){
+        request(HttpMethod.UPLOAD);
+    }
+
+    public final void download(){
+        new DownloadHandler(URL,IREQUEST,ISUCCESS,IFAILURE,IERROR,DOWNLOAD_DIR,EXTENSION,NAME).handleDownload();
     }
 }
