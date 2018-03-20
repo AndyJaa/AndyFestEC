@@ -6,7 +6,7 @@ import com.andy.jaa.andyfec.net.callback.IError;
 import com.andy.jaa.andyfec.net.callback.IFailure;
 import com.andy.jaa.andyfec.net.callback.IRequest;
 import com.andy.jaa.andyfec.net.callback.ISuccess;
-import com.andy.jaa.andyfec.ui.LoaderStyle;
+import com.andy.jaa.andyfec.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;
@@ -14,7 +14,6 @@ import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 
 /**
  * Created by quanxi on 2018/3/11.

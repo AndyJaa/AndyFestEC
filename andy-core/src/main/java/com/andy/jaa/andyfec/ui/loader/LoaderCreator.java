@@ -1,4 +1,4 @@
-package com.andy.jaa.andyfec.ui;
+package com.andy.jaa.andyfec.ui.loader;
 
 import android.content.Context;
 

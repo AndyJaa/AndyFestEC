@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.andy.jaa.andyfec.app.Latte;
 import com.andy.jaa.andyfec.net.callback.IRequest;
 import com.andy.jaa.andyfec.net.callback.ISuccess;
-import com.andy.jaa.andyfec.utils.FileUtils;
+import com.andy.jaa.andyfec.utils.file.FileUtils;
 
 import java.io.File;
 import java.io.InputStream;

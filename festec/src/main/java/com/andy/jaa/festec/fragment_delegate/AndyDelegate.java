@@ -32,13 +32,13 @@ public class AndyDelegate extends LatteDelegate {
 
     public void testRestClient() {
         RestClient.builder()
-                .url("http://news.baidu.com/")
+                .url("http://127.0.0.1/index")
                 .loader(getContext())
                 .param("", "")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-//                        Toast.makeText(getContext(),response,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),response,Toast.LENGTH_SHORT).show();
                     }
                 })
                 .failure(new IFailure() {

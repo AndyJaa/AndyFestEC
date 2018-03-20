@@ -1,4 +1,4 @@
-package com.andy.jaa.andyfec.ui;
+package com.andy.jaa.andyfec.ui.loader;
 
 /**
  * Created by quanxi on 2018/3/19.

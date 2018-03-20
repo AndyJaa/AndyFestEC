@@ -1,4 +1,4 @@
-package com.andy.jaa.ec;
+package com.andy.jaa.ec.icon;
 
 import com.andy.jaa.ec.icon.EcIcons;
 import com.joanzapata.iconify.Icon;

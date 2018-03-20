@@ -27,7 +27,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //Android Support包
+    compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile project(':andy-annotations')
@@ -55,4 +58,6 @@ dependencies {
     compile 'com.blankj:utilcode:1.7.1'
     //loading
     compile 'com.wang.avi:library:2.1.3'
+    //banner
+    compile 'com.bigkoo:convenientbanner:2.0.5'
 }

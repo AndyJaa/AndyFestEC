@@ -1,4 +1,4 @@
-package com.andy.jaa.andyfec.utils;
+package com.andy.jaa.andyfec.utils.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;

@@ -2,8 +2,8 @@ package com.andy.jaa.andyfec.net.callback;
 
 import android.os.Handler;
 
-import com.andy.jaa.andyfec.ui.LatteLoader;
-import com.andy.jaa.andyfec.ui.LoaderStyle;
+import com.andy.jaa.andyfec.ui.loader.LatteLoader;
+import com.andy.jaa.andyfec.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;
