@@ -29,6 +29,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.UUID;
 
 /**
  * Created by quanxi on 2018/3/19.
@@ -364,5 +365,9 @@ public class FileUtils {
             }
         }
         return data;
+    }
+
+    public static String getUUID(){
+        return UUID.randomUUID().toString();
     }
 }

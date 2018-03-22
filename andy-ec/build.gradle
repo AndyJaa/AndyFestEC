@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 25
@@ -30,4 +31,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':andy-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'org.greenrobot:greendao-api:3.2.2'
+    compile 'org.greenrobot:greendao:3.2.2' // add library
 }
