@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
 import com.andy.jaa.andyfec.activities.ProxyActivity;
+import com.andy.jaa.andyfec.app.Latte;
 import com.andy.jaa.andyfec.delegates.LatteDelegate;
 import com.andy.jaa.andyfec.ui.launcher.ILauncherListener;
 import com.andy.jaa.andyfec.ui.launcher.OnLauncherFinishTag;
@@ -24,6 +25,7 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
         if (actionBar!=null){
             actionBar.hide();
         }
+        Latte.getConfigurator().withActivity(this);
     }
 
     @Override

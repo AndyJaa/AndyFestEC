@@ -17,6 +17,8 @@ import com.andy.jaa.andyfec.net.callback.IError;
 import com.andy.jaa.andyfec.net.callback.IFailure;
 import com.andy.jaa.andyfec.net.callback.ISuccess;
 import com.andy.jaa.andyfec.utils.file.FileUtils;
+import com.andy.jaa.andyfec.wechat.LatteWeChat;
+import com.andy.jaa.andyfec.wechat.callbacks.IWeChatSignInCallback;
 import com.andy.jaa.ec.R;
 import com.andy.jaa.ec.R2;
 import com.andy.jaa.ec.database.DatabaseManager;
@@ -86,7 +88,12 @@ public class SignInDelegate extends LatteDelegate {
 
     @OnClick(R2.id.icon_sign_in_wechat)
     void OnClickWeChat(){
+        LatteWeChat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
+            @Override
+            public void onSignInSuccess(String userInfo) {
 
+            }
+        }).signIn();
     }
     @OnClick(R2.id.tv_link_sign_up)
     void OnClickLink(){
