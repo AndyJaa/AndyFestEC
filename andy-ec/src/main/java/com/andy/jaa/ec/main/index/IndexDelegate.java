@@ -2,6 +2,7 @@ package com.andy.jaa.ec.main.index;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.andy.jaa.andyfec.delegates.bottom.BottomItemDelegate;
+import com.andy.jaa.andyfec.ui.recycler.BaseDecoration;
 import com.andy.jaa.andyfec.ui.refresh.RefreshHandler;
 import com.andy.jaa.ec.R;
 import com.andy.jaa.ec.R2;
@@ -47,6 +49,8 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecyclerView(){
         final GridLayoutManager manager = new GridLayoutManager(getContext(),4);
         mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.addItemDecoration
+                (BaseDecoration.create(ContextCompat.getColor(getContext(),R.color.app_background),5));
     }
 
     @Override
