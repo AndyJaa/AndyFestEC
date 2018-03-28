@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.andy.jaa.andyfec.R;
+import com.andy.jaa.andyfec.ui.image.GlideApp;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bumptech.glide.Glide;
 
@@ -23,6 +24,7 @@ public class ImageHolder implements Holder<String> {
 
     @Override
     public void UpdateUI(Context context, int position, String data) {
-        Glide.with(context).load(data).into(mImageView);
+//        Glide.with(context).load(data).into(mImageView);
+        GlideApp.with(context).load(data).centerCrop().into(mImageView);
     }
 }

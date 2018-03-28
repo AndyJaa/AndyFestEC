@@ -6,6 +6,7 @@ import android.widget.ImageView;
 
 import com.andy.jaa.andyfec.R;
 import com.andy.jaa.andyfec.ui.banner.BannerCreator;
+import com.andy.jaa.andyfec.ui.image.GlideApp;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bumptech.glide.Glide;
@@ -63,12 +64,14 @@ public class MultipleRecyclerAdapter extends
                 break;
             case ItemType.IMAGE:
                 imgUrl = item.getFiled(MultipleFields.IMAGE_URL);
-                Glide.with(mContext).load(imgUrl).into((ImageView) helper.getView(R.id.img_single));
+//                Glide.with(mContext).load(imgUrl).into((ImageView) helper.getView(R.id.img_single));
+                GlideApp.with(mContext).load(imgUrl).centerCrop().into((ImageView) helper.getView(R.id.img_single));
                 break;
             case ItemType.TEXT_IMAGE:
                 text = item.getFiled(MultipleFields.TEXT);
                 imgUrl = item.getFiled(MultipleFields.IMAGE_URL);
-                Glide.with(mContext).load(imgUrl).into((ImageView) helper.getView(R.id.iv_multiple));
+//                Glide.with(mContext).load(imgUrl).into((ImageView) helper.getView(R.id.iv_multiple));
+                GlideApp.with(mContext).load(imgUrl).centerCrop().into((ImageView) helper.getView(R.id.iv_multiple));
                 helper.setText(R.id.tv_multiple,text);
                 break;
             case ItemType.BANNER:
