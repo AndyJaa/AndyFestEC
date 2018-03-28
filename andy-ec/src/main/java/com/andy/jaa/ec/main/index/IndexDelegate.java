@@ -15,6 +15,7 @@ import com.andy.jaa.andyfec.ui.recycler.BaseDecoration;
 import com.andy.jaa.andyfec.ui.refresh.RefreshHandler;
 import com.andy.jaa.ec.R;
 import com.andy.jaa.ec.R2;
+import com.andy.jaa.ec.main.EcBottomDelegate;
 import com.joanzapata.iconify.widget.IconTextView;
 
 import butterknife.BindView;
@@ -51,6 +52,8 @@ public class IndexDelegate extends BottomItemDelegate {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration
                 (BaseDecoration.create(ContextCompat.getColor(getContext(),R.color.app_background),5));
+        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 
     @Override

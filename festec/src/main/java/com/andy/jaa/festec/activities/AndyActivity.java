@@ -18,6 +18,8 @@ import com.andy.jaa.ec.sign.SignInDelegate;
 import com.andy.jaa.ec.sign.SignUpDelegate;
 import com.andy.jaa.festec.fragment_delegate.AndyDelegate;
 
+import qiu.niorgai.StatusBarCompat;
+
 public class AndyActivity extends ProxyActivity implements ISignListener ,ILauncherListener{
 
     @Override
@@ -28,6 +30,7 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
             actionBar.hide();
         }
         Latte.getConfigurator().withActivity(this);
+        StatusBarCompat.translucentStatusBar(this,true);
     }
 
     @Override
