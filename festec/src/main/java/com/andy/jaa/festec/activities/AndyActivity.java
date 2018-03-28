@@ -12,7 +12,9 @@ import com.andy.jaa.andyfec.ui.launcher.ILauncherListener;
 import com.andy.jaa.andyfec.ui.launcher.OnLauncherFinishTag;
 import com.andy.jaa.ec.launcher.LauncherDelegate;
 import com.andy.jaa.ec.launcher.LauncherScrollDelegate;
+import com.andy.jaa.ec.main.EcBottomDelegate;
 import com.andy.jaa.ec.sign.ISignListener;
+import com.andy.jaa.ec.sign.SignInDelegate;
 import com.andy.jaa.ec.sign.SignUpDelegate;
 import com.andy.jaa.festec.fragment_delegate.AndyDelegate;
 
@@ -37,23 +39,25 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
     @Override
     public void onSignInSuccess() {
         Toast.makeText(AndyActivity.this,"登录成功了",Toast.LENGTH_SHORT).show();
+        startWithPop(new SignUpDelegate());
     }
 
     @Override
     public void onSignUpSuccess() {
         Toast.makeText(AndyActivity.this,"注册成功了",Toast.LENGTH_SHORT).show();
+        startWithPop(new SignInDelegate());
     }
 
     @Override
     public void onLauncherFinish(OnLauncherFinishTag tag) {
         switch (tag){
             case NOT_SIGNED:
-                Toast.makeText(AndyActivity.this,"启动结束，用户未登录",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AndyActivity.this,"启动结束，用户未登录",Toast.LENGTH_SHORT).show();
                 startWithPop(new SignUpDelegate());
                 break;
             case SIGNED:
-                Toast.makeText(AndyActivity.this,"启动结束，用户已登录",Toast.LENGTH_SHORT).show();
-                startWithPop(new AndyDelegate());
+//                Toast.makeText(AndyActivity.this,"启动结束，用户已登录",Toast.LENGTH_SHORT).show();
+                startWithPop(new EcBottomDelegate());
                 break;
         }
     }

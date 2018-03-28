@@ -18,10 +18,11 @@ public class AndyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withApiHost("http://www.baidu.com/")
+                .withApiHost("http://192.168.0.122:8080/RestServer/api/")
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withInterceptor(new DebugInterceptor("index",R.raw.test))
+                //过滤器
+                .withInterceptor(new DebugInterceptor("test",R.raw.test))
                 .withWeChatAppId("")
                 .withWeChatAppSecret("")
                 .configure();
