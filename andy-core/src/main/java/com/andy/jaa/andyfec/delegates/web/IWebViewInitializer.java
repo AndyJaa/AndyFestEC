@@ -1,4 +1,4 @@
-package com.andy.jaa.andyfec.web;
+package com.andy.jaa.andyfec.delegates.web;
 
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;

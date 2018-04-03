@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.andy.jaa.andyfec.delegates.bottom.BottomItemDelegate;
+import com.andy.jaa.andyfec.delegates.web.WebDelegateIml;
 import com.andy.jaa.ec.R;
 
 /**
@@ -20,5 +21,13 @@ public class DiscoverDelegate extends BottomItemDelegate {
     @Override
     public void onBinderView(@Nullable Bundle savedInstanceState, View rootView) {
 
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        final WebDelegateIml delegateIml = WebDelegateIml.create("index.html");
+        delegateIml.setTopDelegate(this.getParentDelegate());
+        loadRootFragment(R.id.web_discovery_container,delegateIml);
     }
 }
