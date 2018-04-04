@@ -3,6 +3,7 @@ package com.andy.jaa.andyfec.delegates.web;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -16,6 +17,14 @@ public class WebViewInitializer {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             webView.setWebContentsDebuggingEnabled(true);
         }
+        //cookie
+        final CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            cookieManager.setAcceptThirdPartyCookies(webView,true);
+        }
+        cookieManager.setAcceptFileSchemeCookies(true);
+
         webView.setHorizontalScrollBarEnabled(false);
         webView.setVerticalScrollBarEnabled(false);
         //允许截图

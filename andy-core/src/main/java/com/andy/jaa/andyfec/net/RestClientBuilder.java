@@ -76,6 +76,11 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder param(String key,int value){
+        PARAM.put(key,value);
+        return this;
+    }
+
     public final RestClientBuilder raw(String raw){
         this.mBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"),raw);
         return this;
