@@ -24,8 +24,8 @@ public class AndyApplication extends Application {
                 .withIcon(new FontEcModule())
                 //过滤器
                 .withInterceptor(new DebugInterceptor("test",R.raw.test))
-                .withWeChatAppId("wxfcdcecd9df8e0faa")
-                .withWeChatAppSecret("a0560f75335b06e3ebea70f29ff219bf")
+                .withWeChatAppId("")
+                .withWeChatAppSecret("")
                 .withJavascriptInterface("latte")
                 .withWebEvent("test",new TestEvent())
                 .configure();
