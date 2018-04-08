@@ -87,7 +87,7 @@ public class SortRecyclerAdapter extends MultipleRecyclerAdapter {
                 SupportHelper.findFragment(DELEGATE.getChildFragmentManager(), ContentDelegate.class);
         if (contentDelegate!=null){
             //第二个参数是 是否加入到返回栈
-            contentDelegate.replaceFragment(delegate,false);
+            contentDelegate.getSupportDelegate().replaceFragment(delegate,false);
         }
     }
 }

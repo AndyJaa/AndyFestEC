@@ -1,1 +1,1 @@
-include ':festec', ':andy-annotations', ':andy-compiler', ':andy-core', ':andy-ec'
+include ':festec', ':andy-annotations', ':andy-compiler', ':andy-core', ':andy-ec', ':andy-ui'

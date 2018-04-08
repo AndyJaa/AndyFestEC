@@ -68,4 +68,9 @@ public class WebDelegateIml extends WebDelegate {
     public WebChromeClient initWebChromeClient() {
         return new WebChromeClient();
     }
+
+    @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
 }

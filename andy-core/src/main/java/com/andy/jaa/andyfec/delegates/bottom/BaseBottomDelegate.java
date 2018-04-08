@@ -20,6 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -85,8 +86,8 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
             }
         }
         //内容显示
-        final SupportFragment[] delegateArray = ITEM_DELEGATES.toArray(new SupportFragment[size]);
-        loadMultipleRootFragment(R.id.bottom_bar_delegate_container,mIndexDelegate,delegateArray);
+        final ISupportFragment[] delegateArray = ITEM_DELEGATES.toArray(new ISupportFragment[size]);
+        getSupportDelegate().loadMultipleRootFragment(R.id.bottom_bar_delegate_container,mIndexDelegate,delegateArray);
     }
 
     private void restColor(){
@@ -111,7 +112,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         itemTitle.setTextColor(mClickedColor);
 
         //注意先后顺序，第一个是用来显示的页面，第二个是要隐藏的页面
-        showHideFragment(ITEM_DELEGATES.get(tag),ITEM_DELEGATES.get(mCurrentDelegate));
+        getSupportDelegate().showHideFragment(ITEM_DELEGATES.get(tag),ITEM_DELEGATES.get(mCurrentDelegate));
         //当前页面重置
         mCurrentDelegate = tag;
     }

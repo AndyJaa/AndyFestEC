@@ -2,17 +2,14 @@ package com.andy.jaa.andyfec.ui.recycler;
 
 import android.text.TextUtils;
 
-import com.alibaba.fastjson.serializer.DateCodec;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by quanxi on 2018/3/28.
  */
 
 public abstract class DataConverter {
-    protected final ArrayList<MultipleItemEntity> ENTITIES = new ArrayList<>();
+    protected final ArrayList<com.andy.jaa.andyfec.ui.recycler.MultipleItemEntity> ENTITIES = new ArrayList<>();
     private String mJsonData = null;
 
     public abstract ArrayList<MultipleItemEntity> convert();

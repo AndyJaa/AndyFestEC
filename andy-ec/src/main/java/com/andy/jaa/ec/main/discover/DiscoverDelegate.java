@@ -24,10 +24,15 @@ public class DiscoverDelegate extends BottomItemDelegate {
     }
 
     @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
+
+    @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         final WebDelegateIml delegateIml = WebDelegateIml.create("index.html");
         delegateIml.setTopDelegate(this.getParentDelegate());
-        loadRootFragment(R.id.web_discovery_container,delegateIml);
+        getSupportDelegate().loadRootFragment(R.id.web_discovery_container,delegateIml);
     }
 }

@@ -57,6 +57,11 @@ public class IndexDelegate extends BottomItemDelegate {
     }
 
     @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
+
+    @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();

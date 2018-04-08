@@ -9,7 +9,6 @@ import com.andy.jaa.andyfec.ui.banner.BannerCreator;
 import com.andy.jaa.andyfec.ui.image.GlideApp;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 

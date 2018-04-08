@@ -32,6 +32,11 @@ public class GoodsDetailDelegate extends LatteDelegate {
     }
 
     @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
+
+    @Override
     public FragmentAnimator onCreateFragmentAnimator() {
         return new DefaultHorizontalAnimator();
     }

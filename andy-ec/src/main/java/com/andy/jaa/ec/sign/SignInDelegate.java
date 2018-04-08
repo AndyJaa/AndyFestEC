@@ -97,7 +97,7 @@ public class SignInDelegate extends LatteDelegate {
     }
     @OnClick(R2.id.tv_link_sign_up)
     void OnClickLink(){
-        start(new SignUpDelegate());
+        getSupportDelegate().start(new SignUpDelegate());
     }
 
     boolean checkForm(){
@@ -138,5 +138,10 @@ public class SignInDelegate extends LatteDelegate {
     @Override
     public void onBinderView(@Nullable Bundle savedInstanceState, View rootView) {
 
+    }
+
+    @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
     }
 }

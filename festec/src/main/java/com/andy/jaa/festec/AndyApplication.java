@@ -1,6 +1,8 @@
 package com.andy.jaa.festec;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.andy.jaa.andyfec.app.Latte;
 import com.andy.jaa.andyfec.net.interceptors.DebugInterceptor;
@@ -33,6 +35,12 @@ public class AndyApplication extends Application {
         DatabaseManager.getInstance().init(this);
 //        Stetho.initializeWithDefaults(this);
         initStetho();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
     }
 
     private void initStetho(){

@@ -3,12 +3,9 @@ package com.andy.jaa.andyfec.ui.banner;
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.andy.jaa.andyfec.R;
 import com.andy.jaa.andyfec.ui.image.GlideApp;
 import com.bigkoo.convenientbanner.holder.Holder;
-import com.bumptech.glide.Glide;
 
 /**
  * Created by quanxi on 2018/3/28.

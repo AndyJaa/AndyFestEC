@@ -42,13 +42,13 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
     @Override
     public void onSignInSuccess() {
         Toast.makeText(AndyActivity.this,"登录成功了",Toast.LENGTH_SHORT).show();
-        startWithPop(new SignUpDelegate());
+        getSupportDelegate().startWithPop(new EcBottomDelegate());
     }
 
     @Override
     public void onSignUpSuccess() {
         Toast.makeText(AndyActivity.this,"注册成功了",Toast.LENGTH_SHORT).show();
-        startWithPop(new SignInDelegate());
+        getSupportDelegate().startWithPop(new SignInDelegate());
     }
 
     @Override
@@ -56,12 +56,17 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
         switch (tag){
             case NOT_SIGNED:
 //                Toast.makeText(AndyActivity.this,"启动结束，用户未登录",Toast.LENGTH_SHORT).show();
-                startWithPop(new SignUpDelegate());
+                getSupportDelegate().startWithPop(new SignUpDelegate());
                 break;
             case SIGNED:
 //                Toast.makeText(AndyActivity.this,"启动结束，用户已登录",Toast.LENGTH_SHORT).show();
-                startWithPop(new EcBottomDelegate());
+                getSupportDelegate().startWithPop(new EcBottomDelegate());
                 break;
         }
+    }
+
+    @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
     }
 }

@@ -38,4 +38,9 @@ public class EcBottomDelegate extends BaseBottomDelegate {
     public int setClickedColor() {
         return Color.parseColor("#ffff8800");
     }
+
+    @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
 }

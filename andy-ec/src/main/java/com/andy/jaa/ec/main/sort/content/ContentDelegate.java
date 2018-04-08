@@ -72,4 +72,9 @@ public class ContentDelegate extends LatteDelegate {
                 .build()
                 .get();
     }
+
+    @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
 }

@@ -43,6 +43,11 @@ public class VerticalListDelegate extends LatteDelegate {
     }
 
     @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
+
+    @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         RestClient.builder()

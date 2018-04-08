@@ -32,5 +32,8 @@ dependencies {
     compile project(':andy-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'org.greenrobot:greendao-api:3.2.2'
-    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'org.greenrobot:greendao:3.2.2'
+    // add library
+    compile project(path: ':andy-ui')
+    compile files('libs/alipaySdk-20180316.jar')
 }

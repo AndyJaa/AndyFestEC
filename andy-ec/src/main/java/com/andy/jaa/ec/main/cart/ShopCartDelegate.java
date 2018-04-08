@@ -12,16 +12,20 @@ import android.support.v7.widget.ViewStubCompat;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.andy.jaa.andyfec.delegates.bottom.BottomItemDelegate;
 import com.andy.jaa.andyfec.net.RestClient;
 import com.andy.jaa.andyfec.net.callback.ISuccess;
 import com.andy.jaa.andyfec.ui.recycler.MultipleItemEntity;
 import com.andy.jaa.ec.R;
 import com.andy.jaa.ec.R2;
+import com.andy.jaa.ec.pay.FastPay;
+import com.andy.jaa.ec.pay.IAIPayResultListener;
 import com.joanzapata.iconify.widget.IconTextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.WeakHashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,7 +34,7 @@ import butterknife.OnClick;
  * Created by quanxi on 2018/4/4.
  */
 
-public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, ICartItemListener {
+public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, ICartItemListener, IAIPayResultListener {
     @BindView(R2.id.rv_shop_cart)
     RecyclerView recyclerView;
 
@@ -44,6 +48,7 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
     AppCompatTextView tv_total_price;
 
     private boolean isFilate = false;
+    private double mTotalPrice = 0.00;
 
     @OnClick(R2.id.icon_shop_cart_select_all)
     void onClickSelectAll() {
@@ -113,6 +118,39 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
         checkItemCount();
     }
 
+    @OnClick(R2.id.tv_shop_cart_pay)
+    void onClickPay(){
+        createOrder();
+    }
+
+    //创建订单，跟支付没有关系
+    private void createOrder(){
+        final String orderUrl = "";
+        final WeakHashMap<String,Object> orderParam = new WeakHashMap<>();
+        orderParam.put("userid","");
+        orderParam.put("amount",0.01);
+        orderParam.put("comment","测试支付");
+        orderParam.put("type",1);
+        orderParam.put("ordertype",0);
+        orderParam.put("isanonymous",true);
+        orderParam.put("followeduser",0);
+        RestClient.builder().url(orderUrl)
+                .param(orderParam)
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        //具体的支付
+//                        final int orderId = JSON.parseObject(response).getInteger("result");
+                        int orderId = 10000;
+                        FastPay.create(ShopCartDelegate.this)
+                                .setPayResultListener(ShopCartDelegate.this)
+                                .setPayOrderId(orderId)
+                                .beginPayDialog();
+                    }
+                })
+                .build().post();
+    }
+
     private void checkItemCount(){
         final int count = mAdapter.getItemCount();
         if (count==0){
@@ -151,6 +189,11 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
     }
 
     @Override
+    public void post(Runnable runnable) {
+        getSupportDelegate().post(runnable);
+    }
+
+    @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         RestClient.builder()
@@ -170,6 +213,8 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
         final LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(mAdapter);
+        mTotalPrice = mAdapter.getTotalPrice();
+        tv_total_price.setText(String.valueOf(mTotalPrice));
         checkItemCount();
     }
 
@@ -178,5 +223,30 @@ public class ShopCartDelegate extends BottomItemDelegate implements ISuccess, IC
     public void onItemClick(double itemTotalPrice) {
         final double price = mAdapter.getTotalPrice();
         tv_total_price.setText(String.valueOf(price));
+    }
+
+    @Override
+    public void onPaySuccess() {
+
+    }
+
+    @Override
+    public void onPaying() {
+
+    }
+
+    @Override
+    public void onPayFail() {
+
+    }
+
+    @Override
+    public void onPayCancel() {
+
+    }
+
+    @Override
+    public void onPayConnectError() {
+
     }
 }
