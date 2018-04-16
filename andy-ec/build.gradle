@@ -36,4 +36,5 @@ dependencies {
     // add library
     compile project(path: ':andy-ui')
     compile files('libs/alipaySdk-20180316.jar')
+    compile 'de.hdodenhof:circleimageview:2.2.0'
 }

@@ -151,6 +151,11 @@ public abstract class BaseDelegateFragment extends Fragment implements ISupportF
     }
 
     @Override
+    public void post(Runnable runnable) {
+        DELEGATE.post(runnable);
+    }
+
+    @Override
     public FragmentAnimator onCreateFragmentAnimator() {
         return DELEGATE.onCreateFragmentAnimator();
     }
