@@ -1,6 +1,7 @@
 package com.andy.jaa.andyfec.app;
 
 import android.app.Activity;
+import android.app.Application;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
@@ -48,7 +49,7 @@ public class Configurator {
         initIcons();
         Logger.addLogAdapter(new AndroidLogAdapter());
         LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
-        Utils.init(Latte.getApplicationContext());
+//        Utils.init();
     }
 
     public final Configurator withApiHost(String host) {

@@ -31,25 +31,25 @@ public class ListBean implements MultiItemEntity {
         this.mOnCheckChangeListener = mOnCheckChangeListener;
     }
 
-    public String getmImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 
-    public String getmText() {
+    public String getText() {
         if (mText == null) return "";
         return mText;
     }
 
-    public String getmValue() {
+    public String getValue() {
         if (mValue == null) return "";
         return mValue;
     }
 
-    public int getmId() {
+    public int getId() {
         return mId;
     }
 
-    public LatteDelegate getmDelegate() {
+    public LatteDelegate getDelegate() {
         return mDelegate;
     }
 

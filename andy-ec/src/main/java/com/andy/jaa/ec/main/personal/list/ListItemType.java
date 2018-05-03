@@ -6,4 +6,6 @@ package com.andy.jaa.ec.main.personal.list;
 
 public class ListItemType {
     public static final int ITEM_NOMAL = 20;
+    public static final int ITEM_AVATAR = 21;
+    public static final int ITEM_SWTICH = 22;
 }

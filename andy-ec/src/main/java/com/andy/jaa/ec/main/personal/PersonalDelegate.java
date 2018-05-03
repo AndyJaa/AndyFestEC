@@ -9,10 +9,13 @@ import android.view.View;
 import com.andy.jaa.andyfec.delegates.bottom.BottomItemDelegate;
 import com.andy.jaa.ec.R;
 import com.andy.jaa.ec.R2;
+import com.andy.jaa.ec.main.personal.address.AddressDelegate;
 import com.andy.jaa.ec.main.personal.list.ListAdapter;
 import com.andy.jaa.ec.main.personal.list.ListBean;
 import com.andy.jaa.ec.main.personal.list.ListItemType;
 import com.andy.jaa.ec.main.personal.order.OrderListDelegate;
+import com.andy.jaa.ec.main.personal.profile.UserProfileDelegate;
+import com.andy.jaa.ec.main.personal.settings.SettingsDelegate;
 
 import java.util.ArrayList;
 
@@ -36,10 +39,15 @@ public class PersonalDelegate extends BottomItemDelegate {
         startOrderByType();
     }
 
+    @OnClick(R2.id.img_user_avatar)
+    void onClickAvatar(){
+        getParentDelegate().getSupportDelegate().start(new UserProfileDelegate());
+    }
+
     private void startOrderByType(){
         final OrderListDelegate delegate = new OrderListDelegate();
         delegate.setArguments(mArg);
-        getSupportDelegate().start(delegate);
+        getParentDelegate().getSupportDelegate().start(delegate);
     }
 
     @Override
@@ -58,11 +66,13 @@ public class PersonalDelegate extends BottomItemDelegate {
         final ListBean address = new ListBean.Builder()
                 .setItemType(ListItemType.ITEM_NOMAL)
                 .setId(1)
+                .setDelegate(new AddressDelegate())
                 .setText("收货地址")
                 .build();
         final ListBean system = new ListBean.Builder()
                 .setItemType(ListItemType.ITEM_NOMAL)
                 .setId(2)
+                .setDelegate(new SettingsDelegate())
                 .setText("系统设置")
                 .build();
 
@@ -74,5 +84,6 @@ public class PersonalDelegate extends BottomItemDelegate {
         rv_setting.setLayoutManager(manager);
         final ListAdapter adapter = new ListAdapter(data);
         rv_setting.setAdapter(adapter);
+        rv_setting.addOnItemTouchListener(new PersionalClickListener(this));
     }
 }

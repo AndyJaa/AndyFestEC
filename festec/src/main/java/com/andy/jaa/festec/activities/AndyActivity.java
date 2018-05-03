@@ -18,6 +18,7 @@ import com.andy.jaa.ec.sign.SignInDelegate;
 import com.andy.jaa.ec.sign.SignUpDelegate;
 import com.andy.jaa.festec.fragment_delegate.AndyDelegate;
 
+import cn.jpush.android.api.JPushInterface;
 import qiu.niorgai.StatusBarCompat;
 
 public class AndyActivity extends ProxyActivity implements ISignListener ,ILauncherListener{
@@ -31,6 +32,18 @@ public class AndyActivity extends ProxyActivity implements ISignListener ,ILaunc
         }
         Latte.getConfigurator().withActivity(this);
         StatusBarCompat.translucentStatusBar(this,true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 
     @Override
